@@ -14,10 +14,10 @@
         body {
             --main-accent-color: #123400;
 
-        	font-size: 24px;
-  			font-family: Georgia, serif;
+            font-size: 24px;
+            font-family: Georgia, serif;
             margin: 0;
-        	text-align: center;
+            text-align: center;
             color: #fff;
             background-size: contain;
             background-image: url("media/trees/f.jpg");
@@ -57,12 +57,12 @@
             margin-right: auto;
             margin-left: auto;
         }
-        
+
         .space-below {
             margin-bottom: 60px;
         }
 
-		.us {
+        .us {
             display: flex;
             overflow-x: scroll;
             height: 240px;
@@ -71,10 +71,10 @@
             border-bottom: 2px solid var(--main-accent-color);
             padding-bottom: 0;
             background-color: #fff;
-		}
+        }
 
         .us::-webkit-scrollbar {
-        	/* hide scrollbar */
+            /* hide scrollbar */
             width: 0px;
             height: 0px;
             background: transparent;
@@ -103,20 +103,27 @@
             display: block;
         }
 
-		section {
-			padding-left: 12px;
-			padding-right: 12px;
-		}
-		
-		.rings .photo-row:not(:last-of-type) {
-			margin-bottom: 16px;
-		}
-		
-		.rings .photo-row img {
-			margin-left: 8px;
-			margin-right: 8px;
-			max-width: 0.3vw;
-		}
+        section {
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+
+        .rings .photo-row:not(:last-of-type) {
+            margin-bottom: 16px;
+        }
+
+        .rings .photo-row {
+            display: flex;
+            justify-content: center;
+        }
+
+        .rings .photo-row img {
+            flex-shrink: 1;
+            display: block;
+            margin-left: 8px;
+            margin-right: 8px;
+            max-width: 120px;
+        }
 
         .yt {
             max-width: 512px;
@@ -126,85 +133,85 @@
         }
         .yt-wrapper {
             float: none;
-	    	clear: both;
-		    width: 100%;
-		    position: relative;
-		    padding-bottom: 56.25%;
-		    height: 0;
-		}
-		.yt-wrapper iframe {
-		    position: absolute;
-		    top: 0;
-		    left: 0;
-		    width: 100%;
-	    	height: 100%;
-		}
+            clear: both;
+            width: 100%;
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+        .yt-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
         </style>
     </head>
     <body>
         <!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
-		<main>
+        <main>
             <header>
                 <h1>Aisha &amp; Cameron</h1>
             </header>
 
-			<div class="us">
+            <div class="us">
                 <picture data-date="November 2017"><img height="240px" src="media/us-12.jpg" alt="Picture of Aisha and Cameron" /></picture>
                 <picture data-date="October 2017"><img height="240px" src="media/us-11.jpg" alt="Picture of Aisha and Cameron" /></picture>
-				<picture data-date="July 2017"><img height="240px" src="media/us-10.jpg" alt="Picture of Aisha and Cameron" /></picture>
-				<picture data-date="June 2017"><img height="240px" src="media/us-9.jpg" alt="Picture of Aisha and Cameron" /></picture>
-				<picture data-date="June 2017"><img height="240px" src="media/us-8.jpg" alt="Picture of Aisha and Cameron" /></picture>
-				<picture data-date="May 2017"><img height="240px" src="media/us-7.jpg" alt="Picture of Aisha and Cameron" /></picture>
-				<picture data-date="August 2016"><img height="240px" src="media/us-6.jpg" alt="Picture of Aisha and Cameron" /></picture>
-				<picture data-date="May 2016"><img height="240px" src="media/us-5.jpg" alt="Picture of Aisha and Cameron" /></picture>
-				<picture data-date="September 2014"><img height="240px" src="media/us-4.jpg" alt="Picture of Aisha and Cameron" /></picture>
-				<picture data-date="July 2014"><img height="240px" src="media/us-3.jpg" alt="Picture of Aisha and Cameron" /></picture>
-				<picture data-date="November 2012"><img height="240px" src="media/us-2.jpg" alt="Picture of Aisha and Cameron" /></picture>
-				<picture data-date="June 2012"><img height="240px" src="media/us-1.jpg" alt="Picture of Aisha and Cameron" /></picture>
-			</div>
+                <picture data-date="July 2017"><img height="240px" src="media/us-10.jpg" alt="Picture of Aisha and Cameron" /></picture>
+                <picture data-date="June 2017"><img height="240px" src="media/us-9.jpg" alt="Picture of Aisha and Cameron" /></picture>
+                <picture data-date="June 2017"><img height="240px" src="media/us-8.jpg" alt="Picture of Aisha and Cameron" /></picture>
+                <picture data-date="May 2017"><img height="240px" src="media/us-7.jpg" alt="Picture of Aisha and Cameron" /></picture>
+                <picture data-date="August 2016"><img height="240px" src="media/us-6.jpg" alt="Picture of Aisha and Cameron" /></picture>
+                <picture data-date="May 2016"><img height="240px" src="media/us-5.jpg" alt="Picture of Aisha and Cameron" /></picture>
+                <picture data-date="September 2014"><img height="240px" src="media/us-4.jpg" alt="Picture of Aisha and Cameron" /></picture>
+                <picture data-date="July 2014"><img height="240px" src="media/us-3.jpg" alt="Picture of Aisha and Cameron" /></picture>
+                <picture data-date="November 2012"><img height="240px" src="media/us-2.jpg" alt="Picture of Aisha and Cameron" /></picture>
+                <picture data-date="June 2012"><img height="240px" src="media/us-1.jpg" alt="Picture of Aisha and Cameron" /></picture>
+            </div>
 
-			<section class="main-details constrain-width space-below">
+            <section class="main-details constrain-width space-below">
                 <p>Summer 2019 — Washington</p>
                 <p><a href="mailto:cheers@ourlittlewedding.love">🥂@ourlittlewedding.❤️</a></p>
-			</section>
-			
-			<section class="rings constrain-width space-below">
-				<h3>The Rings</h3>
-				<p>The rings form a set, fitting together to form the skyline of the Olympic mountains as seen from Hurricane Ridge. They're cast in warm white gold. Aisha's engagement ring is set with a raw Montana sapphire.</p>
-				<div class="photo-row">
-					<img height="120" width="120" src="media/rings/cameron-flat.jpg" />
-					<img height="120" width="120" src="media/rings/cameron-angle.jpg" />
-					<img height="120" width="120" src="media/rings/cameron-side.jpg" />
-				</div>
-				<div class="photo-row">
-					<img height="120" width="120" src="media/rings/aisha-flat.jpg" />
-					<img height="120" width="120" src="media/rings/aisha-angle.jpg" />
-					<img height="120" width="120" src="media/rings/aisha-side.jpg" />
-				</div>
-				<div class="photo-row">
-					<img height="120" width="120" src="media/rings/engagement-flat.jpg" />
-					<img height="120" width="120" src="media/rings/engagement-angle.jpg" />
-					<img height="120" width="120" src="media/rings/engagement-side.jpg" />
-				</div>
-				<div class="photo-row">
-					<img height="120" width="120" src="media/rings/stacked-angle.jpg" />
-					<img height="120" width="120" src="media/rings/stacked-side.jpg" />
-				</div>
-			</section>
+            </section>
 
-			<div class="space-below constrain-width">
-	            <div class="yt">
-	                <div class="yt-wrapper">
-	                    <iframe src="https://www.youtube.com/embed/YWB2km5T5Ng" frameborder="0" allowfullscreen></iframe>
-	                </div>
-	            </div>
-	        </div>
+            <section class="rings constrain-width space-below">
+                <h3>The Rings</h3>
+                <p>The rings form a set, fitting together to form the skyline of the Olympic mountains as seen from Hurricane Ridge. They're cast in warm white gold. Aisha's engagement ring is set with a raw Montana sapphire.</p>
+                <div class="photo-row">
+                    <div><img src="media/rings/cameron-flat.jpg" /></div>
+                    <div><img src="media/rings/cameron-angle.jpg" /></div>
+                    <div><img src="media/rings/cameron-side.jpg" /></div>
+                </div>
+                <div class="photo-row">
+                    <div><img src="media/rings/aisha-flat.jpg" /></div>
+                    <div><img src="media/rings/aisha-angle.jpg" /></div>
+                    <div><img src="media/rings/aisha-side.jpg" /></div>
+                </div>
+                <div class="photo-row">
+                    <div><img src="media/rings/engagement-flat.jpg" /></div>
+                    <div><img src="media/rings/engagement-angle.jpg" /></div>
+                    <div><img src="media/rings/engagement-side.jpg" /></div>
+                </div>
+                <div class="photo-row">
+                    <div><img src="media/rings/stacked-angle.jpg" /></div>
+                    <div><img src="media/rings/stacked-side.jpg" /></div>
+                </div>
+            </section>
+
+            <div class="space-below constrain-width">
+                <div class="yt">
+                    <div class="yt-wrapper">
+                        <iframe src="https://www.youtube.com/embed/YWB2km5T5Ng" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
 
             <footer class="space-below">
-            	<p><small>Made by <a href="https://camlittle.com">Cameron</a></small></p>
+                <p><small>Made by <a href="https://camlittle.com">Cameron</a></small></p>
             </footer>
-		</main>
+        </main>
     </body>
 </html>

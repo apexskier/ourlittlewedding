@@ -52,6 +52,11 @@
             margin-bottom: 0;
         }
 
+        p, .rings-gl {
+            margin-top: 0;
+            margin-bottom: 24px;
+        }
+
         .constrain-width {
             max-width: 640px;
             margin-right: auto;
@@ -99,6 +104,10 @@
             padding-right: 0;
         }
 
+        .main-details {
+            margin-top: 60px;
+        }
+
         picture img {
             display: block;
         }
@@ -117,12 +126,21 @@
             justify-content: center;
         }
 
-        .rings .photo-row img {
-            flex-shrink: 1;
-            display: block;
+        .rings .photo-row > div {
+            min-width: 0;
+            max-width: 120px;
             margin-left: 8px;
             margin-right: 8px;
-            max-width: 120px;
+        }
+
+        .rings .photo-row img {
+            display: block;
+            max-width: 100%;
+        }
+
+        #rings {
+            min-height: 1px;
+            height: 300px;
         }
 
         .yt {
@@ -180,6 +198,7 @@
             <section class="rings constrain-width space-below">
                 <h3>The Rings</h3>
                 <p>The rings form a set, fitting together to form the skyline of the Olympic mountains as seen from Hurricane Ridge. They're cast in warm white gold. Aisha's engagement ring is set with a raw Montana sapphire.</p>
+                <div id="rings" class="rings-gl"></div>
                 <div class="photo-row">
                     <div><img src="media/rings/cameron-flat.jpg" /></div>
                     <div><img src="media/rings/cameron-angle.jpg" /></div>
@@ -213,5 +232,7 @@
                 <p><small>Made by <a href="https://camlittle.com">Cameron</a></small></p>
             </footer>
         </main>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/three.js/92/three.min.js"></script>
+    <script src="main.js"></script>
     </body>
 </html>

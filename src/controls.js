@@ -1,6 +1,6 @@
 const objects = [];
 const ignoredElements = [];
-let isRotating = false;
+let isInteracting = false;
 let autoRotateSpeed = { x: 0.001, y: 0 };
 let currentPosition;
 let currentSpeed = { x: 0, y: 0 };
@@ -45,7 +45,7 @@ export function initControls(rootElement) {
     currentPosition = pos;
     startInteractionPosition = pos;
     lastInteractionPosition = pos;
-    isRotating = true;
+    isInteracting = true;
   }
 
   rootElement.addEventListener("touchstart", ev => {
@@ -78,10 +78,13 @@ export function initControls(rootElement) {
         y: deltaMove.y / deltaTime * 50,
       };
     }
-    isRotating = false;
+    isInteracting = false;
   }
 
-  rootElement.addEventListener("touchend", ev => {
+  window.addEventListener("touchend", ev => {
+    if (!isInteracting) {
+      return;
+    }
     if (ignoredElements.some(el => el.contains(ev.target))) {
       return;
     }
@@ -89,7 +92,10 @@ export function initControls(rootElement) {
     handleInteractionEnd(lastInteractionPosition);
   });
 
-  rootElement.addEventListener("mouseup", ev => {
+  window.addEventListener("mouseup", ev => {
+    if (!isInteracting) {
+      return;
+    }
     if (ignoredElements.some(el => el.contains(ev.target))) {
       return;
     }
@@ -100,7 +106,10 @@ export function initControls(rootElement) {
     currentPosition = pos;
   }
 
-  rootElement.addEventListener("touchmove", ev => {
+  window.addEventListener("touchmove", ev => {
+    if (!isInteracting) {
+      return;
+    }
     if (ignoredElements.some(el => el.contains(ev.target))) {
       return;
     }
@@ -110,10 +119,14 @@ export function initControls(rootElement) {
     }
   });
 
-  rootElement.addEventListener("mousemove", ev => {
+  window.addEventListener("mousemove", ev => {
+    if (!isInteracting) {
+      return;
+    }
     if (ignoredElements.some(el => el.contains(ev.target))) {
       return;
     }
+    ev.preventDefault();
     handleInteractionMove(getClickPosition(ev));
   });
 }
@@ -129,7 +142,7 @@ export function adjustSpeed(callback) {
 export function controlsUpdate() {
   const now = Date.now();
   let deltaMove;
-  if (isRotating) {
+  if (isInteracting) {
     const deltaTime = now - lastUpdateTime;
     deltaMove = {
       x: currentPosition.x - lastInteractionPosition.x,

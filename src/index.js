@@ -1,5 +1,3 @@
-import "three/examples/js/loaders/STLLoader";
-import dat from "three/examples/js/libs/dat.gui.min";
 import Detector from "three/examples/js/Detector";
 import { CustomRingGeometry } from "./customRing";
 import mountainPoints from "./scaledPoints.json";
@@ -11,6 +9,7 @@ import {
   getScroll,
   adjustSpeed,
 } from "./controls";
+import "./main.css";
 
 if (!Detector.webgl) Detector.addGetWebGLMessage();
 

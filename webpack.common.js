@@ -6,6 +6,7 @@ module.exports = {
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "dist"),
+    publicPath: "dist",
   },
   module: {
     rules: [
@@ -16,6 +17,20 @@ module.exports = {
           {
             loader: "url-loader",
           },
+        ],
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "main.css",
+            },
+          },
+          { loader: "extract-loader" },
+          { loader: "css-loader" },
+          { loader: "postcss-loader" },
         ],
       },
     ],

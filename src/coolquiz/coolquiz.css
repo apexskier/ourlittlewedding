@@ -1,5 +1,10 @@
 body {
+  padding: 20px;
   background: black;
+}
+
+p {
+  margin-top: 0;
 }
 
 .question-1 {

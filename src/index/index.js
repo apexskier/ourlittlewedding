@@ -1,4 +1,5 @@
 import Detector from "three/examples/js/Detector";
+import "normalize.css";
 import { CustomRingGeometry } from "./customRing";
 import mountainPoints from "./scaledPoints.json";
 import {

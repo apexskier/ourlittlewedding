@@ -1,0 +1,41 @@
+body {
+  background: black;
+}
+
+.question-1 {
+  color: white;
+  font-family: monospace;
+}
+
+.question-1 label {
+  display: block;
+}
+
+.question-1 input {
+  appearance: none;
+  background-color: inherit;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  border-bottom: 1px solid #666;
+  /* padding: 4px; */
+  width: 100%;
+}
+
+.question-1 input:focus {
+  outline: none;
+  border-bottom: 1px solid #999;
+}
+
+.question-1 .input-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.question-1 .input-wrapper::before {
+  content: "> ";
+  color: white;
+  display: block;
+  margin-right: 12px;
+}

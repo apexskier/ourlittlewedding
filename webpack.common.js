@@ -2,11 +2,14 @@ const path = require("path");
 const webpack = require("webpack");
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: {
+    index: "./src/index.js",
+    coolquiz: "./src/coolquiz.js",
+  },
   output: {
-    filename: "main.js",
+    filename: "[name].js",
     path: path.resolve(__dirname, "dist"),
-    publicPath: "dist",
+    // publicPath: "dist",
   },
   module: {
     rules: [
@@ -20,12 +23,30 @@ module.exports = {
         ],
       },
       {
+        test: /\.html$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+            },
+          },
+          { loader: "extract-loader" },
+          {
+            loader: "html-loader",
+            options: {
+              attrs: ["img:src"],
+            },
+          },
+        ],
+      },
+      {
         test: /\.css$/,
         use: [
           {
             loader: "file-loader",
             options: {
-              name: "main.css",
+              name: "[name].[ext]",
             },
           },
           { loader: "extract-loader" },

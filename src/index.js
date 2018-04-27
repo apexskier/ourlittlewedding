@@ -9,7 +9,8 @@ import {
   getScroll,
   adjustSpeed,
 } from "./controls";
-import "./main.css";
+import "./index.html";
+import "./index.css";
 
 if (!Detector.webgl) Detector.addGetWebGLMessage();
 
@@ -78,12 +79,12 @@ async function loadEnvTexture() {
   return new Promise(resolve => {
     new THREE.CubeTextureLoader().load(
       [
-        require("../media/env/px.jpg"),
-        require("../media/env/nx.jpg"),
-        require("../media/env/py.jpg"),
-        require("../media/env/ny.jpg"),
-        require("../media/env/pz.jpg"),
-        require("../media/env/nz.jpg"),
+        require("./media/env/px.jpg"),
+        require("./media/env/nx.jpg"),
+        require("./media/env/py.jpg"),
+        require("./media/env/ny.jpg"),
+        require("./media/env/pz.jpg"),
+        require("./media/env/nz.jpg"),
       ],
       resolve,
     );
@@ -133,7 +134,7 @@ function init() {
   (async () => {
     const [envMap, normalMap] = await Promise.all([
       loadEnvTexture(),
-      loadTexture(require("../media/normalMap.png")),
+      loadTexture(require("./media/normalMap.png")),
     ]);
 
     const cameronMaterial = new THREE.MeshStandardMaterial({

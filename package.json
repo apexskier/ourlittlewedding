@@ -35,7 +35,8 @@
     "build": "webpack --config webpack.prod.js",
     "serve": "webpack-serve --config ./webpack.dev.js --host 0.0.0.0",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "webpack --config webpack.dev.js"
+    "watch": "webpack --config webpack.dev.js",
+    "format": "prettier --write --ignore-path .gitignore '{*.{css,js},**/*.{css,js}}'"
   },
   "author": "Cameron Little <cameron@camlittle.com>",
   "license": "MIT"

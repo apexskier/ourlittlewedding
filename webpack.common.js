@@ -50,7 +50,7 @@ module.exports = {
             },
           },
           { loader: "extract-loader" },
-          {loader: "css-loader",},
+          { loader: "css-loader" },
           { loader: "postcss-loader" },
         ],
       },

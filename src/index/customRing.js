@@ -134,12 +134,12 @@ function CustomRingBufferGeometry({
     if (invert) {
       zTop = maxHeight;
       zBot = zTop - pointHeight;
-      zMidBot = zTop - pointHeightOffset
+      zMidBot = zTop - pointHeightOffset;
       zMidTop = zBot + pointHeightOffset;
     } else {
       zBot = 0;
       zTop = zBot + pointHeight;
-      zMidBot = zBot + pointHeightOffset
+      zMidBot = zBot + pointHeightOffset;
       zMidTop = zTop - pointHeightOffset;
     }
 

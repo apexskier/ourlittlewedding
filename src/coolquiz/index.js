@@ -14,7 +14,7 @@ class Question1 extends React.Component {
         <label htmlFor="q-1">
           Question 1: Do you listen to flight of the conchords?
         </label>
-        <div class="input-wrapper">
+        <div className="input-wrapper">
           <input
             id="q-1"
             onChange={this.handleChange}

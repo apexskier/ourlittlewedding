@@ -3,8 +3,8 @@ const webpack = require("webpack");
 
 module.exports = {
   entry: {
-    index: "./src/index.js",
-    coolquiz: "./src/coolquiz.js",
+    index: "./src/index",
+    coolquiz: "./src/coolquiz",
   },
   output: {
     filename: "[name].js",

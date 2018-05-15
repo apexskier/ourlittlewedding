@@ -29,8 +29,8 @@ main {
 }
 
 header {
-  background-color: #fff;
-  color: var(--main-accent-color);
+  background-color: #ddd;
+  color: #000;
 }
 
 header:before,
@@ -63,6 +63,20 @@ p,
   margin-bottom: 60px;
 }
 
+nav {
+  display: flex;
+  overflow-x: scroll;
+  justify-content: center;
+  -webkit-overflow-scrolling: touch;
+  background-color: var(--main-accent-color);
+  color: white;
+  padding: 4px;
+}
+
+nav a {
+  color: white;
+}
+
 .us {
   display: flex;
   overflow-x: scroll;
@@ -70,8 +84,9 @@ p,
   -webkit-overflow-scrolling: touch;
   margin: 0;
   border-bottom: 2px solid var(--main-accent-color);
+  border-top: 2px solid var(--main-accent-color);
   padding-bottom: 0;
-  background-color: #fff;
+  background-color: #ddd;
 }
 
 .us::-webkit-scrollbar {

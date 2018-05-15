@@ -4,26 +4,30 @@ import "normalize.css";
 import "./coolquiz.html";
 import "./coolquiz.css";
 
-class Question1 extends React.Component {
+class Question extends React.Component {
   state = {
     state: "question",
     value: "",
   };
 
   render() {
+    const id = `q-${Math.floor(Math.random() * Math.pow(10, 8))}`;
     return (
-      <div className="question-1">
+      <div className={`${this.props.style}-style-question`}>
         {(() => {
           switch (this.state.state) {
             case "question":
               return (
                 <form onSubmit={this.handleSubmit}>
-                  <label htmlFor="q-1">
-                    Question 1: Do you listen to flight of the conchords?
+                  <label htmlFor={id}>
+                    <span className="question-num">
+                      question {this.props.i}:{" "}
+                    </span>
+                    <span className="question-text">{this.props.question}</span>
                   </label>
                   <div className="input-wrapper">
                     <input
-                      id="q-1"
+                      id={id}
                       onChange={this.handleChange}
                       value={this.state.value}
                       autoFocus
@@ -33,9 +37,9 @@ class Question1 extends React.Component {
                 </form>
               );
             case "wrong":
-              return <p>Only cool people would know the right answer.</p>;
-            case "right":
-              return <p>Damn right you do</p>;
+              return <p className="wrong-answer">{this.props.wrong}</p>;
+            case "correct":
+              return <p className="correct-answer">{this.props.correct}</p>;
           }
         })()}
       </div>
@@ -50,70 +54,73 @@ class Question1 extends React.Component {
     ev.preventDefault();
     if (this.state.value.toLowerCase().startsWith("y")) {
       this.props.onSubmit(this.state.value);
-      this.setState({ state: "right" });
+      this.setState({ state: "correct" });
     } else {
       this.setState({ state: "wrong" });
     }
   };
 }
 
-class Question2 extends React.Component {
-  state = {
-    state: "question",
-    value: "",
-  };
-
+class Question1 extends React.Component {
   render() {
     return (
-      <div className="question-1">
-        {(() => {
-          switch (this.state.state) {
-            case "question":
-              return (
-                <form onSubmit={this.handleSubmit}>
-                  <label htmlFor="q-2">
-                    Question 2: Do you like home brewing?
-                  </label>
-                  <div className="input-wrapper">
-                    <input
-                      id="q-2"
-                      onChange={this.handleChange}
-                      value={this.state.value}
-                      autoFocus
-                      autoComplete="off"
-                    />
-                  </div>
-                </form>
-              );
-            case "wrong":
-              return <p>Only cool people would know the right answer.</p>;
-            case "right":
-              return <p>Damn right you do</p>;
-          }
-        })()}
-      </div>
+      <Question
+        i={1}
+        question="Do you watch flight of the conchords?"
+        style="terminal"
+        wrong="Only cool people would know the right answer."
+        correct="That's right you do"
+        onSubmit={this.props.onSubmit}
+      />
     );
   }
+}
 
-  handleChange = ev => {
-    this.setState({ value: ev.target.value });
-  };
+function Question2(props) {
+  return (
+    <Question
+      i={2}
+      question="Do you stay up past 10 pm?"
+      style="modern"
+      wrong="Only lame-o people go to bed early"
+      correct="Damn straight"
+      onSubmit={props.onSubmit}
+    />
+  );
+}
 
-  handleSubmit = ev => {
-    ev.preventDefault();
-    if (this.state.value.toLowerCase().startsWith("y")) {
-      this.props.onSubmit(this.state.value);
-      this.setState({ state: "right" });
-    } else {
-      this.setState({ state: "wrong" });
-    }
-  };
+function Question3(props) {
+  return (
+    <Question
+      i={3}
+      question="Are you ready to party?"
+      style="party"
+      wrong="Only party people can get past this question"
+      correct="Party on"
+      onSubmit={props.onSubmit}
+    />
+  );
+}
+
+function Question4(props) {
+  return (
+    <Question
+      i={4}
+      question="Are you free May 26th, 2019?"
+      style="big"
+      wrong="That's a bummer, I guess you're not cool."
+      correct="Damn right you do"
+      onSubmit={props.onSubmit}
+    />
+  );
 }
 
 class Quiz extends React.Component {
   state = {
-    q1: "",
-    q2: "",
+    q1: " ",
+    q2: " ",
+    q3: " ",
+    q4: " ",
   };
 
   render() {
@@ -121,6 +128,8 @@ class Quiz extends React.Component {
     return [
       <Question1 key="q1" onSubmit={this.handleSubmitQ1} />,
       this.state.q1 && <Question2 key="q2" onSubmit={this.handleSubmitQ2} />,
+      this.state.q2 && <Question3 key="q3" onSubmit={this.handleSubmitQ3} />,
+      this.state.q3 && <Question4 key="q4" onSubmit={this.handleSubmitQ4} />,
     ];
   }
 
@@ -130,6 +139,14 @@ class Quiz extends React.Component {
 
   handleSubmitQ2 = value => {
     this.setState({ q2: value });
+  };
+
+  handleSubmitQ3 = value => {
+    this.setState({ q3: value });
+  };
+
+  handleSubmitQ4 = value => {
+    this.setState({ q4: value });
   };
 }
 

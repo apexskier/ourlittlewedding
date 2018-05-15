@@ -168,13 +168,13 @@ class Quiz extends React.Component {
             <h1>Woo hoo!</h1>
             <p>Let me know!</p>
             <p>
-              <a href={`sms://+13604601206?body=${message}`}>💬</a>{" "}
+              <a href="sms:+13604601205">💬</a>{" "}
               <a
                 href={`mailto:cheers@ourlittlewedding.love?subject=${message}`}
               >
                 📧
               </a>{" "}
-              <a href="tel://+13604601206">📞</a>
+              <a href="tel:+13604601205">📞</a>
             </p>
           </Confetti>
         </div>

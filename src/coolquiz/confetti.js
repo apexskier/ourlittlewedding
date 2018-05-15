@@ -126,8 +126,8 @@ export default class Confetti extends React.Component {
     }
 
     function handleResize() {
-      W = window.innerWidth;
-      H = window.innerHeight;
+      W = document.body.clientWidth;
+      H = document.body.clientHeight;
       canvas.width = W;
       canvas.height = H;
     }

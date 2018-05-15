@@ -27,10 +27,7 @@ class Question extends React.Component {
   render() {
     const id = `q-${Math.floor(Math.random() * Math.pow(10, 8))}`;
     return (
-      <div
-        className={`${this.props.style || "terminal"}-style-question`}
-        data-state={this.state.state}
-      >
+      <div className={`${this.props.style || "terminal"}-style-question`}>
         {(() => {
           switch (this.state.state) {
             case "question":
@@ -96,7 +93,11 @@ class Question extends React.Component {
 
   handleSubmit = ev => {
     ev.preventDefault();
-    if ((this.props.test || yesRegex).test(this.state.value.toLowerCase())) {
+    const sanitized = this.state.value.toLowerCase().trim();
+    if (!sanitized) {
+      return;
+    }
+    if ((this.props.test || yesRegex).test(sanitized)) {
       if (this.props.skipContinue) {
         this.props.onContinue();
       } else {
@@ -131,15 +132,15 @@ class Quiz extends React.Component {
       test: noRegex,
     },
     {
-      question: "Are you free May 26th, 2019?",
-      wrong: "That's a bummer, I guess you're not cool",
-      correct: "Good",
-    },
-    {
       style: "terminal-party",
       question: "Are you ready to party?",
       wrong: "Only party people can get past this question",
       correct: "Party on",
+    },
+    {
+      question: "Are you free May 26th, 2019?",
+      wrong: "That's a bummer, I guess you're not cool",
+      correct: "Good",
     },
     {
       question: "Will you be my groomsman?",
@@ -147,16 +148,6 @@ class Quiz extends React.Component {
       wrong: "Wrong answer",
     },
   ];
-
-  componentDidUpdate() {
-    if (this.state.question >= this.questions.length) {
-      setTimeout(() => {
-        window.location.href = `mailto:cheers@ourlittlewedding.love?subject=${encodeURIComponent(
-          "I'm in!",
-        )}`;
-      }, 2000);
-    }
-  }
 
   render() {
     if (this.state.question < this.questions.length) {
@@ -170,10 +161,21 @@ class Quiz extends React.Component {
         />
       );
     } else {
+      const message = encodeURIComponent("I'm in!");
       return (
         <div className="complete">
           <Confetti>
             <h1>Woo hoo!</h1>
+            <p>Let me know!</p>
+            <p>
+              <a href={`sms://+13604601206?body=${message}`}>💬</a>{" "}
+              <a
+                href={`mailto:cheers@ourlittlewedding.love?subject=${message}`}
+              >
+                📧
+              </a>{" "}
+              <a href="tel://+13604601206">📞</a>
+            </p>
           </Confetti>
         </div>
       );

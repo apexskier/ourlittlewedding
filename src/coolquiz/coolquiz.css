@@ -22,12 +22,26 @@ p {
   margin-bottom: 6px;
 }
 
+h1 {
+  font-size: 14vw;
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
 a {
   color: #00bcd4;
 }
 
 [class*="-style-question"] {
   margin-bottom: 12px;
+
+  opacity: 0;
+  animation-name: fade-in;
+  animation-duration: 0.2s;
+  animation-delay: 0.2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
 
   & label {
     display: block;
@@ -93,15 +107,6 @@ a {
 }
 
 .terminal-party-style-question {
-  &[data-state="correct"] {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-
   & .correct-answer {
     font-family: "Montserrat", sans-serif;
     font-weight: bold;
@@ -122,6 +127,7 @@ a {
         Chocolate,
         Crimson; */
     display: inline-block;
+
     animation-name: wobble;
     animation-duration: 1s;
     animation-iteration-count: infinite;
@@ -160,27 +166,21 @@ a {
   }
 }
 
-@keyframes rainbow-gradient {
-  0% {
-    background-position: 0% 0%;
+@keyframes fade-in {
+  from {
+    opacity: 0;
   }
-  33% {
-    background-position: 100% 0%;
-  }
-  67% {
-    background-position: 200% 0%;
-  }
-  100% {
-    background-position: 300% 0%;
+  to {
+    opacity: 1;
   }
 }
 
 @keyframes wobble {
-  0% {
+  from {
     transform: rotate3d(1, 1, 1, 8deg);
     text-shadow: 1px 1px palegreen, 2px 2px palegreen, 3px 3px palegreen;
   }
-  100% {
+  to {
     transform: rotate3d(1, 1, 1, -8deg);
     text-shadow: 1px 1px palegreen, 2px 2px palegreen, 3px 3px palegreen,
       4px 4px palegreen;

@@ -1,17 +1,34 @@
-@import url("https://fonts.googleapis.com/css?family=Amaranth:400i|Montserrat:900");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:900");
+
+html {
+  height: 100%;
+}
 
 body {
+  box-sizing: border-box;
+  height: 100%;
   padding: 20px;
   background: #222;
   color: #fff;
   font-size: 16px;
 }
 
+#root {
+  height: 100%;
+}
+
 p {
   margin-top: 0;
+  margin-bottom: 6px;
+}
+
+a {
+  color: #00bcd4;
 }
 
 [class*="-style-question"] {
+  margin-bottom: 12px;
+
   & label {
     display: block;
 
@@ -42,19 +59,29 @@ p {
     display: flex;
     align-items: center;
   }
+
+  & .continue {
+    appearance: none;
+    background-color: inherit;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    border: none;
+    color: #00bcd4;
+    text-decoration: underline;
+    padding: 0;
+    display: inline;
+    cursor: pointer;
+  }
 }
 
+.terminal-party-style-question,
 .terminal-style-question {
   color: white;
   font-family: monospace;
 
-  & input {
-    border-bottom: 1px solid #666;
-
-    &:focus {
-      outline: none;
-      border-bottom: 1px solid #999;
-    }
+  & input:focus {
+    outline: none;
   }
 
   & .input-wrapper::before {
@@ -65,77 +92,71 @@ p {
   }
 }
 
-.modern-style-question {
-  color: white;
-  font-family: sans-serif;
+.terminal-party-style-question {
+  &[data-state="correct"] {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  & .correct-answer {
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    font-size: 2.2rem;
+    margin-bottom: 0.8rem;
+    color: chocolate;
+    /* color: 
+        DodgerBlue,
+        OliveDrab,
+        Gold,
+        pink,
+        SlateBlue,
+        lightblue,
+        Violet,
+        PaleGreen,
+        SteelBlue,
+        SandyBrown,
+        Chocolate,
+        Crimson; */
+    display: inline-block;
+    animation-name: wobble;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+    animation-delay: -0.5s;
+  }
+}
+
+.final-style-question {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 1.8rem;
+  text-align: center;
+
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
   & label {
-    margin-bottom: 6px;
+    margin-bottom: 12px;
+  }
+
+  & .question-num {
+    display: none;
   }
 
   & input {
-    background-color: #ddd;
+    padding: 8px;
+    background-color: #eee;
     color: #222;
-    border: 2px solid #aaa;
-    padding: 4px;
-  }
-}
-
-.party-style-question {
-  color: white;
-  font-family: sans-serif;
-  font-size: 1.4rem;
-
-  & label {
-    margin-bottom: 10px;
-
-    & .question-text {
-      font-weight: bold;
-      color: #f47442;
-      text-shadow: 1px 1px #42f4a4, 2px 2px #42f4a4, 3px 3px #42f4a4,
-        4px 4px #42f4a4;
-      transform: perspective(1000px) rotate3d(10deg, 10deg, 10deg);
-    }
-  }
-
-  & input {
-    padding: 4px;
-    border-radius: 0;
-
-    &:focus {
-      animation-duration: 1000ms;
-      animation-iteration-count: infinite;
-      background: linear-gradient(
-        to right,
-        #ff2400,
-        #e81d1d,
-        #e8b71d,
-        #e3e81d,
-        #1de840,
-        #1ddde8,
-        #2b1de8,
-        #dd00f3,
-        #dd00f3,
-        #ff2400
-      );
-      background-size: 300% 100%;
-      background-repeat: repeat;
-      animation: rainbow-gradient 4s linear infinite;
-    }
-  }
-
-  & .input-wrapper {
-  }
-}
-
-.big-style-question {
-  font-family: "Amaranth", sans-serif;
-  font-style: italic;
-  font-weight: 400;
-  font-size: 1.5rem;
-
-  & input {
-    padding: 4px;
+    text-align: center;
   }
 }
 
@@ -144,12 +165,37 @@ p {
     background-position: 0% 0%;
   }
   33% {
-    background-position: 50% 0%;
-  }
-  67% {
     background-position: 100% 0%;
   }
-  100% {
-    background-position: 150% 0%;
+  67% {
+    background-position: 200% 0%;
   }
+  100% {
+    background-position: 300% 0%;
+  }
+}
+
+@keyframes wobble {
+  0% {
+    transform: rotate3d(1, 1, 1, 8deg);
+    text-shadow: 1px 1px palegreen, 2px 2px palegreen, 3px 3px palegreen;
+  }
+  100% {
+    transform: rotate3d(1, 1, 1, -8deg);
+    text-shadow: 1px 1px palegreen, 2px 2px palegreen, 3px 3px palegreen,
+      4px 4px palegreen;
+  }
+}
+
+.complete {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 1.8rem;
+  text-align: center;
+
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

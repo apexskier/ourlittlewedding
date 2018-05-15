@@ -1,8 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "normalize.css";
+import Confetti from "./confetti";
 import "./coolquiz.html";
 import "./coolquiz.css";
+
+// no fragments with babel 6 :(
+
+const yesRegex = /\b(y|sure)/i;
+const noRegex = /\b(n)/i;
 
 class Question extends React.Component {
   state = {
@@ -10,10 +16,21 @@ class Question extends React.Component {
     value: "",
   };
 
+  buttonRef = React.createRef();
+
+  componentDidUpdate() {
+    if (this.buttonRef.current) {
+      this.buttonRef.current.focus();
+    }
+  }
+
   render() {
     const id = `q-${Math.floor(Math.random() * Math.pow(10, 8))}`;
     return (
-      <div className={`${this.props.style}-style-question`}>
+      <div
+        className={`${this.props.style || "terminal"}-style-question`}
+        data-state={this.state.state}
+      >
         {(() => {
           switch (this.state.state) {
             case "question":
@@ -37,9 +54,31 @@ class Question extends React.Component {
                 </form>
               );
             case "wrong":
-              return <p className="wrong-answer">{this.props.wrong}</p>;
+              return [
+                <p className="wrong-answer" key="message">
+                  {this.props.wrong}
+                </p>,
+                <p key="try-again">
+                  <a href="" ref={this.buttonRef}>
+                    try again
+                  </a>
+                </p>,
+              ];
             case "correct":
-              return <p className="correct-answer">{this.props.correct}</p>;
+              return [
+                <p className="correct-answer" key="message">
+                  {this.props.correct}
+                </p>,
+                <p key="continue">
+                  <button
+                    className="continue"
+                    ref={this.buttonRef}
+                    onClick={this.handleContinue}
+                  >
+                    continue
+                  </button>
+                </p>,
+              ];
           }
         })()}
       </div>
@@ -50,103 +89,99 @@ class Question extends React.Component {
     this.setState({ value: ev.target.value });
   };
 
+  handleContinue = ev => {
+    ev.preventDefault();
+    this.props.onContinue();
+  };
+
   handleSubmit = ev => {
     ev.preventDefault();
-    if (this.state.value.toLowerCase().startsWith("y")) {
-      this.props.onSubmit(this.state.value);
-      this.setState({ state: "correct" });
+    if ((this.props.test || yesRegex).test(this.state.value.toLowerCase())) {
+      if (this.props.skipContinue) {
+        this.props.onContinue();
+      } else {
+        this.setState({ state: "correct" });
+      }
     } else {
       this.setState({ state: "wrong" });
     }
   };
 }
 
-class Question1 extends React.Component {
-  render() {
-    return (
-      <Question
-        i={1}
-        question="Do you watch flight of the conchords?"
-        style="terminal"
-        wrong="Only cool people would know the right answer."
-        correct="That's right you do"
-        onSubmit={this.props.onSubmit}
-      />
-    );
-  }
-}
-
-function Question2(props) {
-  return (
-    <Question
-      i={2}
-      question="Do you stay up past 10 pm?"
-      style="modern"
-      wrong="Only lame-o people go to bed early"
-      correct="Damn straight"
-      onSubmit={props.onSubmit}
-    />
-  );
-}
-
-function Question3(props) {
-  return (
-    <Question
-      i={3}
-      question="Are you ready to party?"
-      style="party"
-      wrong="Only party people can get past this question"
-      correct="Party on"
-      onSubmit={props.onSubmit}
-    />
-  );
-}
-
-function Question4(props) {
-  return (
-    <Question
-      i={4}
-      question="Are you free May 26th, 2019?"
-      style="big"
-      wrong="That's a bummer, I guess you're not cool."
-      correct="Damn right you do"
-      onSubmit={props.onSubmit}
-    />
-  );
-}
-
 class Quiz extends React.Component {
   state = {
-    q1: " ",
-    q2: " ",
-    q3: " ",
-    q4: " ",
+    question: 0,
   };
 
-  render() {
-    // no fragments with babel 6 :(
-    return [
-      <Question1 key="q1" onSubmit={this.handleSubmitQ1} />,
-      this.state.q1 && <Question2 key="q2" onSubmit={this.handleSubmitQ2} />,
-      this.state.q2 && <Question3 key="q3" onSubmit={this.handleSubmitQ3} />,
-      this.state.q3 && <Question4 key="q4" onSubmit={this.handleSubmitQ4} />,
-    ];
+  questions = [
+    {
+      question: "Do you watch flight of the conchords?",
+      wrong: "Only a cool person would know the right answer",
+      correct: "That's right you do",
+    },
+    {
+      question: "Do you stay up past 10 pm?",
+      wrong: "Only lame-o people go to bed early",
+      correct: "Damn straight",
+    },
+    {
+      question: "“reason maple speed trash”?",
+      wrong: "There is no internet connection",
+      correct: "ajaboi",
+      test: noRegex,
+    },
+    {
+      question: "Are you free May 26th, 2019?",
+      wrong: "That's a bummer, I guess you're not cool",
+      correct: "Good",
+    },
+    {
+      style: "terminal-party",
+      question: "Are you ready to party?",
+      wrong: "Only party people can get past this question",
+      correct: "Party on",
+    },
+    {
+      question: "Will you be my groomsman?",
+      style: "final",
+      wrong: "Wrong answer",
+    },
+  ];
+
+  componentDidUpdate() {
+    if (this.state.question >= this.questions.length) {
+      setTimeout(() => {
+        window.location.href = `mailto:cheers@ourlittlewedding.love?subject=${encodeURIComponent(
+          "I'm in!",
+        )}`;
+      }, 2000);
+    }
   }
 
-  handleSubmitQ1 = value => {
-    this.setState({ q1: value });
-  };
+  render() {
+    if (this.state.question < this.questions.length) {
+      return (
+        <Question
+          key={this.state.question}
+          i={this.state.question + 1}
+          onContinue={this.handleContinue}
+          skipContinue={this.state.question === this.questions.length - 1}
+          {...this.questions[this.state.question]}
+        />
+      );
+    } else {
+      return (
+        <div className="complete">
+          <Confetti>
+            <h1>Woo hoo!</h1>
+          </Confetti>
+        </div>
+      );
+    }
+  }
 
-  handleSubmitQ2 = value => {
-    this.setState({ q2: value });
-  };
-
-  handleSubmitQ3 = value => {
-    this.setState({ q3: value });
-  };
-
-  handleSubmitQ4 = value => {
-    this.setState({ q4: value });
+  handleContinue = value => {
+    this.setState(({ question }) => ({ question: question + 1 }));
   };
 }
 

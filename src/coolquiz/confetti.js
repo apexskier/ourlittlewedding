@@ -26,6 +26,48 @@ class ConfettiParticle {
     ctx.lineTo(this.x + this.tilt, this.y + this.tilt + this.r / 4);
     return ctx.stroke();
   }
+
+  checkForReposition(index, W, H, angle) {
+    if (this.x > W + 20 || this.x < -20 || this.y > H) {
+      if (index % 5 > 0 || index % 2 == 0) {
+        // 66.67% of the flakes
+        this.reposition(
+          Math.random() * W,
+          -10,
+          Math.floor(Math.random() * 10) - 20,
+        );
+      } else {
+        if (Math.sin(angle) > 0) {
+          // Enter from the left
+          this.reposition(
+            -20,
+            Math.random() * H,
+            Math.floor(Math.random() * 10) - 20,
+          );
+        } else {
+          // Enter from the right
+          this.reposition(
+            W + 20,
+            Math.random() * H,
+            Math.floor(Math.random() * 10) - 20,
+          );
+        }
+      }
+    }
+  }
+
+  reposition(xCoordinate, yCoordinate, tilt) {
+    this.x = xCoordinate;
+    this.y = yCoordinate;
+    this.tilt = tilt;
+  }
+
+  step(angle, index) {
+    this.tiltAngle += this.tiltAngleIncremental;
+    this.y += (Math.cos(angle + this.d) + 3 + this.r / 2) / 2;
+    this.x += Math.sin(angle);
+    this.tilt = Math.sin(this.tiltAngle - index / 3) * 15;
+  }
 }
 
 export default class Confetti extends React.Component {
@@ -40,6 +82,7 @@ export default class Confetti extends React.Component {
     let tiltAngle = 0;
     let W;
     let H;
+    let animationHandler;
 
     const canvas = this.ref.current;
     const ctx = canvas.getContext("2d");
@@ -81,11 +124,6 @@ export default class Confetti extends React.Component {
         new ConfettiParticle(particleColors.getColor(), W, H, maxParticles),
       );
     }
-    (function animloop() {
-      const animationHandler = requestAnimationFrame(animloop);
-      draw();
-    })();
-    window.addEventListener("resize", handleResize);
 
     function handleResize() {
       W = window.innerWidth;
@@ -97,64 +135,35 @@ export default class Confetti extends React.Component {
     function draw() {
       ctx.clearRect(0, 0, W, H);
       particles.forEach(particle => particle.draw(ctx));
-      update();
     }
 
     function update() {
-      var particle;
       angle += 0.01;
       tiltAngle += 0.1;
 
       particles.forEach((particle, i) => {
-        stepParticle(particle, i);
-        checkForReposition(particle, i);
+        particle.step(angle, i);
+        particle.checkForReposition(i, W, H, angle);
       });
     }
 
-    function checkForReposition(particle, index) {
-      if (particle.x > W + 20 || particle.x < -20 || particle.y > H) {
-        if (index % 5 > 0 || index % 2 == 0) {
-          // 66.67% of the flakes
-          repositionParticle(
-            particle,
-            Math.random() * W,
-            -10,
-            Math.floor(Math.random() * 10) - 20,
-          );
-        } else {
-          if (Math.sin(angle) > 0) {
-            // Enter from the left
-            repositionParticle(
-              particle,
-              -20,
-              Math.random() * H,
-              Math.floor(Math.random() * 10) - 20,
-            );
-          } else {
-            // Enter from the right
-            repositionParticle(
-              particle,
-              W + 20,
-              Math.random() * H,
-              Math.floor(Math.random() * 10) - 20,
-            );
-          }
-        }
-      }
-    }
+    (function animloop() {
+      animationHandler = requestAnimationFrame(animloop);
+      draw();
+      update();
+    })();
+    window.addEventListener("resize", handleResize);
+    document.addEventListener("focusout", handleResize);
 
-    function stepParticle(particle, particleIndex) {
-      particle.tiltAngle += particle.tiltAngleIncremental;
-      particle.y += (Math.cos(angle + particle.d) + 3 + particle.r / 2) / 2;
-      particle.x += Math.sin(angle);
-      particle.tilt = Math.sin(particle.tiltAngle - particleIndex / 3) * 15;
-    }
+    this.cleanup = function cleanup() {
+      window.removeEventListener("resize", handleResize);
+      document.removeEventListener("focusout", handleResize);
+      cancelAnimationFrame(animationHandler);
+    };
+  }
 
-    function repositionParticle(particle, xCoordinate, yCoordinate, tilt) {
-      particle.x = xCoordinate;
-      particle.y = yCoordinate;
-      particle.tilt = tilt;
-    }
+  componentWillUnmount() {
+    this.cleanup();
   }
 
   render() {

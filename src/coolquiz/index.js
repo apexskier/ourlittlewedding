@@ -132,6 +132,12 @@ class Quiz extends React.Component {
       test: noRegex,
     },
     {
+      question: "Do you care about long hair?",
+      wrong: "Cool people don't care",
+      correct: "LONG HAIR DON'T CARE",
+      test: noRegex,
+    },
+    {
       style: "terminal-party",
       question: "Are you ready to party?",
       wrong: "Only party people can get past this question",
@@ -145,7 +151,7 @@ class Quiz extends React.Component {
     {
       question: "Will you be my groomsman?",
       style: "final",
-      wrong: "Wrong answer",
+      wrong: "😢",
     },
   ];
 

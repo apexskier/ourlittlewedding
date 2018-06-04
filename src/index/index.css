@@ -156,25 +156,25 @@ section {
   padding-right: 12px;
 }
 
-.rings .photo-row:not(:last-of-type) {
-  margin-bottom: 16px;
-}
-
 .rings .photo-row {
   display: flex;
   justify-content: center;
-}
 
-.rings .photo-row > div {
-  min-width: 0;
-  max-width: 120px;
-  margin-left: 8px;
-  margin-right: 8px;
-}
+  &:not(:last-of-type) {
+    margin-bottom: 16px;
+  }
 
-.rings .photo-row img {
-  display: block;
-  max-width: 100%;
+  & > div {
+    min-width: 0;
+    max-width: 120px;
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+
+  & img {
+    display: block;
+    max-width: 100%;
+  }
 }
 
 #rings {
@@ -187,19 +187,21 @@ section {
   max-height: 288px;
   margin-right: auto;
   margin-left: auto;
-}
-.yt-wrapper {
-  float: none;
-  clear: both;
-  width: 100%;
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-}
-.yt-wrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+
+  & > .yt-wrapper {
+    float: none;
+    clear: both;
+    width: 100%;
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+
+    & > iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
 }

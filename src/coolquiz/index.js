@@ -1,9 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "normalize.css";
 import Confetti from "./confetti";
 import "./coolquiz.html";
-import "./coolquiz.css";
 
 // no fragments with babel 6 :(
 

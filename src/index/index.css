@@ -2,206 +2,56 @@
   --main-accent-color: #123400;
 }
 
-html,
-body {
-  height: 100%;
+.main-details {
+  margin-top: 40px;
+}
+
+@media (max-width: 540px) {
+  .main-details {
+    margin-top: 0;
+  }
 }
 
 body {
-  font-size: 24px;
-  font-family: Georgia, serif;
-  margin: 0;
-  text-align: center;
-  color: #fff;
-  background-size: contain;
-  background-image: url("./media/trees/f.jpg");
-  background-color: #000;
-  background-position: center bottom;
-  background-repeat: no-repeat;
+  background-color: #ddd;
+  color: #222;
 }
 
 a {
-  color: #ccc;
+  color: var(--main-accent-color);
 }
 
 main {
-  margin-bottom: 36px;
-}
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
 
-header {
-  background-color: #ddd;
-  color: #000;
-}
+  &::before,
+  &::after {
+    content: " ";
+    display: table;
+  }
 
-header:before,
-header:after {
-  content: " ";
-  display: table;
-}
+  & h1 {
+    border: none;
+  }
 
-h1 {
-  font-weight: 300;
-  overflow: hidden;
-  border-bottom: 2px solid var(--main-accent-color);
-  padding-bottom: 12px;
-  margin-bottom: 0;
-}
+  & > div:last-child {
+    flex: 1;
+    background-image: url("./watercolor-kiana.jpg");
+    background-position-x: center;
+    background-position-y: top;
+    background-size: cover;
+    background-repeat: no-repeat;
 
-p,
-.rings-gl {
-  margin-top: 0;
-  margin-bottom: 24px;
-}
-
-.constrain-width {
-  max-width: 640px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.space-below {
-  margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
 nav {
-  display: flex;
-  overflow-x: scroll;
-  justify-content: center;
-  -webkit-overflow-scrolling: touch;
-  background-color: var(--main-accent-color);
-  color: white;
-  padding: 4px;
-}
-
-nav a {
-  color: white;
-}
-
-.us {
-  display: flex;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  height: 240px;
-  -webkit-overflow-scrolling: touch;
-  margin: 0;
-  border-bottom: 2px solid var(--main-accent-color);
-  border-top: 2px solid var(--main-accent-color);
-  padding-bottom: 0;
-  background-color: #ddd;
-
-  &::-webkit-scrollbar {
-    /* hide scrollbar */
-    width: 0px;
-    height: 0px;
-    background: transparent;
-  }
-
-  & picture {
-    margin-right: 12px;
-    position: relative;
-
-    &::before {
-      content: attr(data-date);
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      color: #fff;
-      font-size: 18px;
-      padding: 12px;
-    }
-
-    &[data-description] {
-      &::after {
-        content: attr(data-description) "";
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        bottom: 20px;
-        right: 20px;
-        color: #fff;
-        font-size: 18px;
-        padding: 12px;
-        background-color: rgba(16, 16, 16, 0.8);
-        border-radius: 6px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        transition: opacity 200ms ease-in-out;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-      }
-
-      &:focus::after {
-        opacity: 1;
-      }
-    }
-
-    &:last-child {
-      padding-right: 0;
-    }
-  }
-}
-
-.main-details {
-  margin-top: 60px;
-}
-
-picture img {
-  display: block;
-}
-
-section {
-  padding-left: 12px;
-  padding-right: 12px;
-}
-
-.rings .photo-row {
-  display: flex;
-  justify-content: center;
-
-  &:not(:last-of-type) {
-    margin-bottom: 16px;
-  }
-
-  & > div {
-    min-width: 0;
-    max-width: 120px;
-    margin-left: 8px;
-    margin-right: 8px;
-  }
-
-  & img {
-    display: block;
-    max-width: 100%;
-  }
-}
-
-#rings {
-  min-height: 1px;
-  height: 300px;
-}
-
-.yt {
-  max-width: 512px;
-  max-height: 288px;
-  margin-right: auto;
-  margin-left: auto;
-
-  & > .yt-wrapper {
-    float: none;
-    clear: both;
-    width: 100%;
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-
-    & > iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-  }
+  background-color: var(--main-accent-color)99;
+  font-size: 24px;
 }

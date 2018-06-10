@@ -1,15 +1,20 @@
 const path = require("path");
 const webpack = require("webpack");
 
+const indexCondition = {
+  test: /(normalize|index)\.\w+$/,
+};
+
 module.exports = {
   entry: {
-    index: "./src/index",
     coolquiz: "./src/coolquiz",
+    details: "./src/details",
+    index: "./src/index",
+    us: "./src/us",
   },
   output: {
     filename: "[name].js",
     path: path.resolve(__dirname, "dist"),
-    // publicPath: "dist",
   },
   module: {
     rules: [
@@ -38,7 +43,8 @@ module.exports = {
           {
             loader: "html-loader",
             options: {
-              attrs: ["img:src"],
+              minimize: true,
+              attrs: ["img:src", "link:href"],
             },
           },
         ],
@@ -46,14 +52,10 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: "[name].[ext]",
-            },
-          },
+          { loader: "file-loader" },
+          // { loader: "extract-loader", options: { import: false } },
           { loader: "extract-loader" },
-          { loader: "css-loader", options: { import: false } },
+          { loader: "css-loader" },
           { loader: "postcss-loader" },
         ],
       },

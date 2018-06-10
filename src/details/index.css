@@ -1,0 +1,44 @@
+:root {
+  --main-accent-color: #123400;
+}
+
+body {
+  background-color: #eee;
+  color: #222;
+}
+
+a {
+  color: #555;
+}
+
+h2, h3 {
+  color: #000;
+}
+
+.details {
+  text-align: left;
+  margin-bottom: 60px;
+}
+
+@media (min-width: 540px) {
+  .lodging-info-block {
+    display: flex;
+    margin-bottom: 16px;
+
+    & > div:last-child {
+      margin-left: 16px;
+    }
+  }
+}
+
+.lodging-info-block {
+  margin-bottom: 16px;
+
+  & > div:last-child {
+    text-align: center;
+  }
+
+  & img {
+    max-width: 100%;
+  }
+}

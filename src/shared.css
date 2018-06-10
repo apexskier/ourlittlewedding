@@ -29,7 +29,7 @@ a {
     text-decoration: none;
   }
 
-  &:not([href^=http]) {
+  &:not([href^=http]):not([href^=mailto]) {
     text-decoration-style: dotted;
   }
 }

@@ -52,6 +52,6 @@ main {
 }
 
 nav {
-  background-color: var(--main-accent-color)99;
+  background-color: var(--main-accent-color) 99;
   font-size: 24px;
 }

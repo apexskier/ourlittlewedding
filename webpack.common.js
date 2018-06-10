@@ -15,6 +15,7 @@ module.exports = {
   output: {
     filename: "[name].js",
     path: path.resolve(__dirname, "dist"),
+    publicPath: "/",
   },
   module: {
     rules: [
@@ -26,6 +27,7 @@ module.exports = {
             loader: "url-loader",
             options: {
               limit: 8192,
+              name: "assets/[hash].[ext]",
             },
           },
         ],
@@ -52,8 +54,7 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          { loader: "file-loader" },
-          // { loader: "extract-loader", options: { import: false } },
+          { loader: "file-loader", options: { name: "assets/[hash].[ext]" } },
           { loader: "extract-loader" },
           { loader: "css-loader" },
           { loader: "postcss-loader" },

@@ -2,14 +2,6 @@
   --main-accent-color: #123400;
 }
 
-body {
-  background-image: url("./media/trees/f.jpg");
-}
-
-main {
-  margin-bottom: 36px;
-}
-
 .rings-gl {
   margin-top: 0;
   margin-bottom: 24px;
@@ -21,7 +13,6 @@ main {
   overflow-y: hidden;
   height: 240px;
   -webkit-overflow-scrolling: touch;
-  margin: 0;
   border-bottom: 2px solid var(--main-accent-color);
   border-top: 2px solid var(--main-accent-color);
   padding-bottom: 0;
@@ -82,6 +73,24 @@ main {
     &:last-child {
       padding-right: 0;
     }
+  }
+}
+
+.our-story,
+.rings {
+  text-align: left;
+}
+
+.mountains-bg {
+  padding-top: 30px;
+  background-image: url("./media/trees/f.jpg");
+  background-color: #000;
+  background-position: top center;
+  background-repeat: no-repeat;
+  color: #fff;
+
+  a {
+    color: #ccc;
   }
 }
 

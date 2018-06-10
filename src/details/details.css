@@ -2,15 +2,6 @@
   --main-accent-color: #123400;
 }
 
-body {
-  background-color: #eee;
-  color: #222;
-}
-
-a {
-  color: #555;
-}
-
 h2,
 h3 {
   color: #000;
@@ -18,7 +9,10 @@ h3 {
 
 .details {
   text-align: left;
-  margin-bottom: 60px;
+
+  & nav {
+    font-size: 20px;
+  }
 }
 
 @media (min-width: 540px) {
@@ -34,6 +28,10 @@ h3 {
 
 .lodging-info-block {
   margin-bottom: 16px;
+  
+  & p:first-child {
+    margin-top: 0;
+  }
 
   & > div:last-child {
     text-align: center;

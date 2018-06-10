@@ -17,10 +17,6 @@ body {
   color: #222;
 }
 
-a {
-  color: var(--main-accent-color);
-}
-
 main {
   min-height: 100%;
   display: flex;
@@ -51,7 +47,7 @@ main {
   }
 }
 
-nav {
+#primary-nav {
   background-color: var(--main-accent-color) 99;
   font-size: 24px;
 }

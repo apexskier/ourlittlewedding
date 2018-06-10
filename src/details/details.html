@@ -7,13 +7,13 @@
     <title>Wedding details - Aisha &amp; Cameron</title>
     <meta name="description" content="Logistics, details, and information about Aisha and Cameron's wedding.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#123400"/>
+    <meta name="theme-color" content="#123400" />
     <link rel="icon" type="image/png" href="../favicon16.png" sizes="16x16" />
     <link rel="icon" type="image/png" href="../favicon32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="../favicon96.png" sizes="96x96" />
     <link href="~normalize.css" rel="stylesheet" />
     <link href="../shared.css" rel="stylesheet" />
-    <link href="./index.css" rel="stylesheet" />
+    <link href="./details.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -28,19 +28,36 @@
             </h1>
         </header>
 
-        <nav>
+        <nav id="primary-nav">
             <div class="nav-links">
                 <a href="/">🏠</a>
                 <a href="/us.html">About us</a>
-                <a href="/details.html">Wedding details</a>
+                <a class="active" href="/details.html">Wedding details</a>
                 <a>Registry</a>
                 <a>RSVP</a>
                 <a href="mailto:cheers@ourlittlewedding.love">📝</a>
             </div>
         </nav>
 
-        <section class="details constrain-width">
-            <h2>Lodging</h2>
+        <section class="details constrain-width space-below">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#lodging">Lodging</a>
+                    </li>
+                    <li>
+                        <a href="#transportation">Transportation</a>
+                    </li>
+                    <li>
+                        <a href="#things-to-do">Things to do</a>
+                    </li>
+                    <li>
+                        <a href="#day-of">Day-of logistics</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <h2 id="lodging">Lodging</h2>
 
             <div class="lodging-info-block">
                 <div>
@@ -61,7 +78,7 @@
             <p>We are unable to block rooms so please book your room early!</p>
             <p>When you call to book mention that you are attending our wedding at Kiana Lodge to get a 15% discount.</p>
 
-            <h2>Transportation</h2>
+            <h2 id="transportation">Transportation</h2>
 
             <h3>From the airport to Kiana Lodge:</h3>
             <p>The Seattle-Tacoma International Airport is approximately 1.5 hours away from Kiana Lodge.</p>
@@ -87,9 +104,10 @@
 
             <h3>Getting from Seattle to Kiana Lodge:</h3>
             <p>While you can drive around to the peninsula, the preferred method is to take the Seattle-Bainbridge ferry.</p>
-            <p>You can drive a car on the ferry for about $18 one-way. Walk on passengers are $8.35 each; fares are only collected
-                from Seattle to Bainbridge and the return trip is free. There is no designated parking near the ferry terminal,
-                so if you choose to walk on you may want to find alternative methods for getting to the ferry terminal.
+            <p>You can drive a car on the ferry for about $18 one-way. Walk-on passengers are $8.35 each; fares for walk-ons
+                are only collected from Seattle to Bainbridge and the return trip is free. There is no designated parking
+                near the ferry terminal, so if you choose to walk on you may want to find alternative methods for getting
+                to the ferry terminal.
             </p>
             <p>If taking the light rail (either from the airport or downtown) it is a 10 minute walk to the ferry terminal from
                 the Pioneer Square Station.</p>
@@ -104,7 +122,7 @@
                 a later date.
             </p>
 
-            <h2>Things to do</h2>
+            <h2 id="things-to-do">Things to do</h2>
 
             <h3>in Poulsbo:</h3>
             <p>Poulsbo is known as “Little Norway on the Fjord” and is a cute waterside town. It has a pedestrian-friendly historic
@@ -163,9 +181,21 @@
                     <a target="_blank" rel="noopener" href="https://www.seattle.gov/parks/find/parks/lake-union-park">Lake Union</a>
                 </li>
             </ul>
+
+            <h2 id="day-of">Day-of logistics</h2>
+
+            <dd>
+                <dt>Date:</dt>
+                <dd>May 26, 2019</dd>
+                <dt>Location:</dt>
+                <dd>
+                    <a target="_blank" rel="noopener" href="https://www.kianalodge.com/">Kiana Lodge</a>, Poulsbo, WA
+                </dd>
+            </dd>
+            <p>More information to follow.</p>
         </section>
 
-        <footer class="space-below">
+        <footer>
             <p>
                 <small>Made by
                     <a href="https://camlittle.com">Cameron</a>

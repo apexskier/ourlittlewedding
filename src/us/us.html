@@ -7,13 +7,13 @@
     <title>About us - Aisha &amp; Cameron</title>
     <meta name="description" content="Fun stuff about Cameron and Aisha.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#123400"/>
+    <meta name="theme-color" content="#123400" />
     <link rel="icon" type="image/png" href="../favicon16.png" sizes="16x16" />
     <link rel="icon" type="image/png" href="../favicon32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="../favicon96.png" sizes="96x96" />
     <link href="~normalize.css" rel="stylesheet" />
     <link href="../shared.css" rel="stylesheet" />
-    <link href="./index.css" rel="stylesheet" />
+    <link href="./us.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -28,10 +28,10 @@
             </h1>
         </header>
 
-        <nav>
+        <nav id="primary-nav">
             <div class="nav-links">
                 <a href="/">🏠</a>
-                <a href="/us.html">About us</a>
+                <a class="active" href="/us.html">About us</a>
                 <a href="/details.html">Wedding details</a>
                 <a>Registry</a>
                 <a>RSVP</a>
@@ -39,7 +39,7 @@
             </div>
         </nav>
 
-        <div class="us">
+        <div class="us space-below">
             <picture tabindex="0" data-date="May 2018" alt="Black Canyon of the Gunnison River.">
                 <img height="240px" src="./media/us-may-2018.jpg" alt="Picture of Aisha and Cameron" />
             </picture>
@@ -87,75 +87,110 @@
             </picture>
         </div>
 
-        <section class="rings constrain-width space-below">
-            <h3>The Rings</h3>
-            <p>The rings form a set, fitting together to form the skyline of the Olympic mountains as seen from Hurricane Ridge.
-                They're cast in warm white gold. Aisha's engagement ring is set with a raw Montana sapphire.</p>
-            <div id="rings" class="rings-gl"></div>
-            <div class="photo-row">
-                <div>
-                    <img alt="Cameron's ring" src="./media/rings/cameron-flat.jpg" />
-                </div>
-                <div>
-                    <img alt="Cameron's ring (angle)" src="./media/rings/cameron-angle.jpg" />
-                </div>
-                <div>
-                    <img alt="Cameron's ring (side)" src="./media/rings/cameron-side.jpg" />
-                </div>
-            </div>
-            <div class="photo-row">
-                <div>
-                    <img alt="Aisha's ring" src="./media/rings/aisha-flat.jpg" />
-                </div>
-                <div>
-                    <img alt="Aisha's ring (angle)" src="./media/rings/aisha-angle.jpg" />
-                </div>
-                <div>
-                    <img alt="Aisha's ring (side)" src="./media/rings/aisha-side.jpg" />
-                </div>
-            </div>
-            <div class="photo-row">
-                <div>
-                    <img alt="Engagement ring" src="./media/rings/engagement-flat.jpg" />
-                </div>
-                <div>
-                    <img alt="Engagement ring (angle)" src="./media/rings/engagement-angle.jpg" />
-                </div>
-                <div>
-                    <img alt="Engagement ring (side)" src="./media/rings/engagement-side.jpg" />
-                </div>
-            </div>
-            <div class="photo-row">
-                <div>
-                    <img alt="Wedding rings together" src="./media/rings/stacked-angle.jpg" />
-                </div>
-                <div>
-                    <img alt="Wedding rings together (side)" src="./media/rings/stacked-side.jpg" />
-                </div>
-            </div>
+        <section class="our-story constrain-width space-below">
+            <h2>Our story</h2>
+
+            <p>Aisha and Cameron met through the Honors College at Western Washington University in Bellingham, WA. They had
+                mutual Honors classes for the first two quarters and they both lived in Edens Hall; Aisha was on the third
+                floor and Cameron on the second. While there were multiple group activities they both attended, their courtship
+                truly began when Aisha took initiative during a dorm movie night. Aisha can’t sit still during any movie,
+                so she wiggled next to Cameron throughout
+                <i>The Producers</i> until she finally enticed him to hold her hand. (That movie still comes up most evenings
+                around 8:30 when Aisha starts singing “bedtime for Aisha and Cameron” to the tune of “Springtime for Hitler
+                in Germany.”)</p>
+
+            <p>There was a lot of hand-holding and smoothie dates during the subsequent two weeks. There was even an impromptu
+                ski adventure through campus during an unexpected snow storm. Aisha was hoping they would share their first
+                kiss sitting outside a snow igloo on Old Main Lawn, but Cameron wasn’t ready to initiate. Aisha wasn’t willing
+                to wait much longer, so she kissed him for the first time on January 16, 2012 while watching
+                <i>The Importance of Being Earnest</i> in Aisha’s dorm room. Cameron finally asked to “make it Facebook official”
+                after the movie was over.</p>
+
+            <p>Throughout their remaining college years, Cameron took Aisha on her first backpacking trip and puddle run (Aisha
+                only agreed to run because she was trying to impress him, but the charade didn’t last long because of her
+                lack of running abilities). Aisha didn’t introduce Cameron to anything specifically interesting, but they
+                both agree he is in general a more interesting and better person because of her.</p>
+
+            <p>While both had multiple job offers, they agreed to accept positions in Seattle after college. In June, 2015 they
+                moved into their first shared apartment in Bellevue, WA. During the 3+ years in that apartment Aisha became
+                a CPA, they adopted their rabbits
+                <a target="_blank" rel="noopener" href="http://instagram.com/fizzandluna">Fizz and Luna</a>, and Cameron bought a drone. They plan to stay in that apartment until they choose to leave
+                Seattle and buy their first house.</p>
+
+            <p>Before they become engaged both knew that marriage was on the table, however, Aisha had numerous stipulations
+                for the proposal. By October 2017 Cameron finally felt that he could satisfy most of the stipulations. Cameron
+                and Aisha joined their friends for a weekend visiting Halloween Town in Oregon. The morning before the main
+                event, Cameron lead the group on a short walk to Beaver Falls. After crossing the creek and walking behind
+                the falls, Cameron
+                <a target="_blank" rel="noopener" href="https://www.instagram.com/p/BaWk5Szn4zp/">got down on one knee</a> and Aisha said “yes.”</p>
         </section>
 
-        <div class="space-below constrain-width">
-            <div class="yt">
-                <div class="yt-wrapper">
-                    <iframe
-                        title="Down with the Gown YouTube video"
-                        src="https://www.youtube.com/embed/YWB2km5T5Ng"
-                        frameborder="0"
-                        allowfullscreen
-                    >
-                    </iframe>
+        <div class="mountains-bg">
+            <section class="rings constrain-width space-below">
+                <h2>The rings</h2>
+                <p>The rings form a set, fitting together to form the skyline of the Olympic mountains as seen from Hurricane
+                    Ridge. They're cast in warm white gold. Aisha's engagement ring is set with a raw Montana sapphire.</p>
+                <div id="rings" class="rings-gl"></div>
+                <div class="photo-row">
+                    <div>
+                        <img alt="Cameron's ring" src="./media/rings/cameron-flat.jpg" />
+                    </div>
+                    <div>
+                        <img alt="Cameron's ring (angle)" src="./media/rings/cameron-angle.jpg" />
+                    </div>
+                    <div>
+                        <img alt="Cameron's ring (side)" src="./media/rings/cameron-side.jpg" />
+                    </div>
+                </div>
+                <div class="photo-row">
+                    <div>
+                        <img alt="Aisha's ring" src="./media/rings/aisha-flat.jpg" />
+                    </div>
+                    <div>
+                        <img alt="Aisha's ring (angle)" src="./media/rings/aisha-angle.jpg" />
+                    </div>
+                    <div>
+                        <img alt="Aisha's ring (side)" src="./media/rings/aisha-side.jpg" />
+                    </div>
+                </div>
+                <div class="photo-row">
+                    <div>
+                        <img alt="Engagement ring" src="./media/rings/engagement-flat.jpg" />
+                    </div>
+                    <div>
+                        <img alt="Engagement ring (angle)" src="./media/rings/engagement-angle.jpg" />
+                    </div>
+                    <div>
+                        <img alt="Engagement ring (side)" src="./media/rings/engagement-side.jpg" />
+                    </div>
+                </div>
+                <div class="photo-row">
+                    <div>
+                        <img alt="Wedding rings together" src="./media/rings/stacked-angle.jpg" />
+                    </div>
+                    <div>
+                        <img alt="Wedding rings together (side)" src="./media/rings/stacked-side.jpg" />
+                    </div>
+                </div>
+            </section>
+
+            <div class="space-below constrain-width">
+                <div class="yt">
+                    <div class="yt-wrapper">
+                        <iframe title="Down with the Gown YouTube video" src="https://www.youtube.com/embed/YWB2km5T5Ng" frameborder="0" allowfullscreen>
+                        </iframe>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <footer class="space-below">
-            <p>
-                <small>Made by
-                    <a href="https://camlittle.com">Cameron</a>
-                </small>
-            </p>
-        </footer>
+            <footer>
+                <p>
+                    <small>Made by
+                        <a href="https://camlittle.com">Cameron</a>
+                    </small>
+                </p>
+            </footer>
+        </div>
     </main>
     <script src="//cdnjs.cloudflare.com/ajax/libs/three.js/92/three.min.js"></script>
     <script src="./us.js"></script>

@@ -1,8 +1,9 @@
 {
-  "name": "ringmodel",
+  "name": "ourlittlewedding.love",
   "version": "0.0.1",
-  "description": "",
+  "description": "My wedding website",
   "main": "dist/main.js",
+  "private": true,
   "dependencies": {
     "normalize.css": "^8.0.0",
     "react": "^16.3.2",
@@ -39,7 +40,8 @@
     "format": "prettier --config prettier.config.js --write --ignore-path .gitignore '{*.{css,js},**/*.{css,js}}'",
     "sync": "rsync -avh ./dist/ camlittle.com:/var/www/ourlittlewedding.love",
     "clean": "rm -rf ./dist/",
-    "publish": "npm run clean && npm run build && npm run sync"
+    "check": "test -z \"$(git status -s)\"",
+    "publish": "npm run format && npm run check && npm run clean && npm run build && npm run sync"
   },
   "author": "Cameron Little <cameron@camlittle.com>",
   "license": "MIT"

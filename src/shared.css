@@ -13,7 +13,7 @@ body {
 
   font-size: 22px;
   font-family: Georgia, serif;
-  line-height: 1.4;
+  line-height: 1.2;
   margin: 0;
   text-align: center;
   background-size: contain;
@@ -29,7 +29,7 @@ a {
     text-decoration: none;
   }
 
-  &:not([href^=http]):not([href^=mailto]) {
+  &:not([href^="http"]):not([href^="mailto"]) {
     text-decoration-style: dotted;
   }
 }

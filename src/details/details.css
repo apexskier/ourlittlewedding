@@ -28,7 +28,7 @@ h3 {
 
 .lodging-info-block {
   margin-bottom: 16px;
-  
+
   & p:first-child {
     margin-top: 0;
   }

@@ -36,7 +36,10 @@
     "serve": "webpack-serve --config ./webpack.dev.js --host 0.0.0.0",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --config webpack.dev.js",
-    "format": "prettier --config prettier.config.js --write --ignore-path .gitignore '{*.{css,js},**/*.{css,js}}'"
+    "format": "prettier --config prettier.config.js --write --ignore-path .gitignore '{*.{css,js},**/*.{css,js}}'",
+    "sync": "rsync -avh ./dist/ camlittle.com:/var/www/ourlittlewedding.love",
+    "clean": "rm -rf ./dist/",
+    "publish": "npm run clean && npm run build && npm run sync"
   },
   "author": "Cameron Little <cameron@camlittle.com>",
   "license": "MIT"

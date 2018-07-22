@@ -105,17 +105,22 @@ p {
     background: transparent;
   }
 
-  & .nav-links {
+  & .mobile-toggle {
+    display: none;
+  }
+
+  & .extra-links {
+    display: inline-block;
+  }
+
+  & .center-nav {
     padding: 0 8px;
     margin: 0 auto;
-
-    & a {
-      display: inline-block;
-      padding: 4px 8px;
-    }
   }
 
   & a {
+    display: inline-block;
+    padding: 4px 8px;
     color: inherit;
     text-decoration: inherit;
     white-space: pre;
@@ -134,8 +139,42 @@ p {
 }
 
 @media (max-width: 540px) {
-  nav .nav-links a {
-    display: block;
+  body {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  #primary-nav {
+    & .extra-links {
+      display: none;
+
+      & a {
+        display: block;
+        line-height: 1.2;
+      }
+    }
+
+    & .mobile-toggle {
+      display: initial;
+    }
+
+    & input.mobile-toggle {
+      display: none;
+
+      &:checked ~ .extra-links {
+        display: block;
+      }
+
+      &:checked ~ label {
+        display: none;
+      }
+    }
+  }
+
+  h1 {
+    margin-top: 0;
+    padding-top: 12px;
+    line-height: 1.1;
   }
 }
 

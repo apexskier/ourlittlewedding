@@ -51,3 +51,9 @@ main {
   background-color: rgb(18, 52, 0, 0.6);
   font-size: 24px;
 }
+
+@media (max-width: 540px) {
+  #primary-nav a {
+    display: block;
+  }
+}

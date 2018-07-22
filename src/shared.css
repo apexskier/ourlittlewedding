@@ -89,7 +89,7 @@ p {
 }
 
 #primary-nav {
-  overflow-x: scroll;
+  overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   background-color: var(--main-accent-color);

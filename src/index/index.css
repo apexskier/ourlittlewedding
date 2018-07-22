@@ -48,6 +48,6 @@ main {
 }
 
 #primary-nav {
-  background-color: var(--main-accent-color) 99;
+  background-color: rgb(18, 52, 0, 0.6);
   font-size: 24px;
 }

@@ -16,9 +16,29 @@ h3 {
     clear: both;
   }
 
-  & img {
+  & .profile-info img {
     float: right;
-    margin-left: 12px;
+    margin-left: 20px;
     margin-bottom: 12px;
+    max-width: 240px;
+    max-height: 200px;
+  }
+}
+
+@media (max-width: 540px) {
+  .content {
+    & .profile-info {
+      text-align: center;
+
+      & h3 {
+        text-align: left;
+      }
+
+      & img {
+        margin: 0 auto;
+        float: none;
+        max-width: 100%;
+      }
+    }
   }
 }

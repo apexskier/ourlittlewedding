@@ -8,8 +8,8 @@ const indexCondition = {
 module.exports = {
   entry: {
     coolquiz: "./src/coolquiz",
-    details: "./src/details",
     index: "./src/index",
+    logistics: "./src/logistics",
     us: "./src/us",
   },
   output: {

@@ -38,7 +38,7 @@
     position: relative;
 
     &::before {
-      content: attr(data-date);
+      content: attr(data-date) "";
       position: absolute;
       bottom: 0;
       left: 0;
@@ -71,11 +71,16 @@
 
       &:focus {
         outline: none;
+        pointer-events: none;
 
         &::after {
           opacity: 1;
         }
       }
+    }
+
+    & img {
+      user-select: none;
     }
 
     &:last-child {

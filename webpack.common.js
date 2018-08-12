@@ -10,6 +10,7 @@ module.exports = {
     coolquiz: "./src/coolquiz",
     index: "./src/index",
     logistics: "./src/logistics",
+    registry: "./src/registry",
     us: "./src/us",
   },
   output: {
@@ -21,7 +22,7 @@ module.exports = {
     rules: [
       { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },
       {
-        test: /\.(png|jpg|gif)$/,
+        test: /\.(png|jpg|gif|svg)$/,
         use: [
           {
             loader: "url-loader",

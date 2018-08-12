@@ -1,0 +1,13 @@
+:root {
+  --main-accent-color: #123400;
+}
+
+.content {
+  & img {
+    max-width: 100%;
+  }
+  /* text-align: left; */
+}
+
+@media (max-width: 540px) {
+}

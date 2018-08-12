@@ -2,6 +2,12 @@
   --main-accent-color: #123400;
 }
 
+body {
+  background-image: url("./media/paper.jpg");
+  background-color: #FFFFFC;
+  background-repeat: repeat;
+}
+
 .rings-gl {
   margin-top: 0;
   margin-bottom: 24px;

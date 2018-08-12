@@ -7,6 +7,7 @@ const indexCondition = {
 
 module.exports = {
   entry: {
+    "wedding-party": "./src/wedding-party",
     coolquiz: "./src/coolquiz",
     index: "./src/index",
     logistics: "./src/logistics",

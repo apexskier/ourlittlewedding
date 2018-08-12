@@ -1,0 +1,1 @@
+import "./wedding-party.html";

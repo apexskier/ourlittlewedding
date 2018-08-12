@@ -1,0 +1,24 @@
+:root {
+  --main-accent-color: #123400;
+}
+
+h2,
+h3 {
+  color: #000;
+}
+
+.content {
+  text-align: left;
+
+  & .profile::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  & img {
+    float: right;
+    margin-left: 6px;
+    margin-bottom: 12px;
+  }
+}

@@ -34,7 +34,7 @@ main {
     border: none;
   }
 
-  & > div:last-child {
+  & > .watercolor {
     flex: 1;
     background-image: url("./watercolor-kiana.jpg");
     background-position-x: center;

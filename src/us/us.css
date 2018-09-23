@@ -44,7 +44,7 @@
       left: 0;
       color: #fff;
       font-size: 18px;
-      padding: 12px;
+      padding: 10px 12px;
     }
 
     &[alt] {
@@ -81,6 +81,7 @@
 
     & img {
       user-select: none;
+      background-color: rgba(18, 52, 0, 0.6);
     }
 
     &:last-child {
@@ -102,7 +103,11 @@
   background-repeat: no-repeat;
   color: #fff;
 
-  a {
+  & h2 {
+    color: #fff;
+  }
+
+  & a {
     color: #ccc;
   }
 }
@@ -125,6 +130,7 @@
   & img {
     display: block;
     max-width: 100%;
+    background-color: rgba(255, 255, 255, 0.6);
   }
 }
 

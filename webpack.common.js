@@ -16,6 +16,7 @@ module.exports = {
     "rsvp-thanks": "./src/rsvp-thanks",
     "rsvp-sorry": "./src/rsvp-sorry",
     us: "./src/us",
+    "404": "./src/404",
   },
   output: {
     filename: "[name].js",

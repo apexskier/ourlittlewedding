@@ -37,7 +37,7 @@
     "dev": "webpack-serve --config ./webpack.dev.js --host 0.0.0.0",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --config prettier.config.js --write --ignore-path .gitignore '{*.{css,js},**/*.{css,js}}'",
-    "sync": "rsync -avh ./dist/ camlittle.com:/var/www/ourlittlewedding.love",
+    "sync": "rsync -avh ./dist/ matheny:/var/www/ourlittlewedding.love",
     "clean": "rm -rf ./dist/",
     "check": "test -z \"$(git status -s)\"",
     "publish": "npm run format && npm run check && npm run clean && npm run build && npm run sync"

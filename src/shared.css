@@ -14,10 +14,17 @@ body {
   background-repeat: repeat;
   color: #222;
   font-size: 22px;
-  font-family: Cochin, Georgia, serif;
+  font-family: Georgia, serif;
   line-height: 1.2;
   margin: 0;
   text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: Cochin, Georgia, serif;
 }
 
 a {

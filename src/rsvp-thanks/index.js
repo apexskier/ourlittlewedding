@@ -1,1 +1,0 @@
-import "./rsvp-thanks.html";

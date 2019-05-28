@@ -12,6 +12,7 @@ module.exports = {
     index: "./src/index",
     logistics: "./src/logistics",
     registry: "./src/registry",
+    photos: "./src/photos",
     us: "./src/us",
     "404": "./src/404",
   },
